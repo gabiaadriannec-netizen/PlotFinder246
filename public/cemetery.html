@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cemetery Layout</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h1>PlotFinder</h1>
+
+    <ul>
+        <li><a href="index.html">MAP</a></li>
+        <li><a href="plottypes.html">PLOT TYPES</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="team.html">TEAM</a></li>
+    </ul>
+
+</nav>
+
+<section class="cemetery-page">
+
+    <h1>Cemetery Layout</h1>
+
+    <div class="cemetery-wrapper">
+
+        <img
+            src="images/map2.jpg"
+            class="cemetery-image"
+        >
+
+        <!-- CLICKABLE MAUSOLEUM LEFT -->
+
+        <div
+            class="click-zone"
+            style="
+                top:60px;
+                left:40px;
+                width:180px;
+                height:1200px;
+            "
+            onclick="showSection('mausoleumLeft')">
+        </div>
+
+        <!-- CLICKABLE MAUSOLEUM RIGHT -->
+
+        <div
+            class="click-zone"
+            style="
+                top:60px;
+                right:40px;
+                width:180px;
+                height:1200px;
+            "
+            onclick="showSection('mausoleumRight')">
+        </div>
+
+        <!-- CLICKABLE IN-GROUND -->
+
+        <div
+            class="click-zone"
+            style="
+                top:296px;
+                left:385px;
+                width:260px;
+                height:159px;
+            "
+            onclick="showSection('ground')">
+        </div>
+
+        <!-- CLICKABLE ROOFED -->
+
+        <div
+            class="click-zone"
+            style="
+                top:471px;
+                right:341px;
+                width:291px;
+                height:850px;
+            "
+            onclick="showSection('roofed')">
+        </div>
+
+        <!-- DYNAMIC PLOTS -->
+
+        <div id="plotContainer"></div>
+
+    </div>
+
+</section>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PlotFinder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h1>PlotFinder</h1>
+
+    <ul>
+        <li><a href="index.html">MAP</a></li>
+        <li><a href="plottypes.html">PLOT TYPES</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="team.html">TEAM</a></li>
+    </ul>
+
+</nav>
+
+<section class="map-section">
+
+    <h1>Cemetery Map</h1>
+
+    <button onclick="switchMap()">
+        Switch View
+    </button>
+
+    <iframe
+        id="mapFrame"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4391.876098262231!2d120.7563620527437!3d14.190422823852195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd855796d9f289%3A0x98a0e045e480d8ad!2sOur%20Lady%20of%20the%20Way%20Eternal%20Garden!5e1!3m2!1sen!2sph!4v1779540497393!5m2!1sen!2sph"
+        width="100%"
+        height="500"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+    <div class="layout-button-container">
+
+        <a href="cemetery.html">
+            <button class="layout-button">
+                Open Cemetery Layout
+            </button>
+        </a>
+
+    </div>
+
+</section>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

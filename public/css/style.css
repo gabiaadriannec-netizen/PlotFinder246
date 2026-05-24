@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef5e9;
+    color:#234b33;
+    overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 60px;
+    background:#2f6b45;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav h1{
+    color:white;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    font-size:15px;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a:hover{
+    color:#dff5e5;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:white;
+    left:0;
+    bottom:-6px;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   AUTH PAGES
+========================= */
+
+.auth-container{
+    width:420px;
+    margin:70px auto;
+    background:white;
+    padding:45px;
+    border-radius:25px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
+
+.auth-container h1{
+    text-align:center;
+    margin-bottom:30px;
+    color:#2f6b45;
+    font-size:34px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:none;
+    background:#f3f7f4;
+    border-radius:14px;
+    font-size:14px;
+    font-family:'Poppins',sans-serif;
+    outline:none;
+    transition:0.3s;
+    color:#234b33;
+}
+
+input:focus{
+    border:2px solid #2f6b45;
+    background:white;
+}
+
+input::placeholder{
+    color:#7b8f82;
+}
+
+button{
+    border:none;
+    background:#2f6b45;
+    color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:0.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+button:hover{
+    background:#3f8b5a;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.map-section,
+.content-section,
+.plot-section,
+.reserve-section,
+.cemetery-layout,
+.cemetery-page{
+    padding:70px 90px;
+}
+
+h1{
+    color:#2f6b45;
+}
+
+/* =========================
+   MAP SECTION
+========================= */
+
+.map-section h1{
+    margin-bottom:25px;
+    font-size:42px;
+}
+
+iframe{
+    width:100%;
+    border:none;
+    border-radius:28px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.12);
+}
+
+.layout-button-container{
+    margin-top:25px;
+    display:flex;
+    gap:20px;
+}
+
+.layout-button{
+    background:#2f6b45;
+    color:white;
+    border:none;
+    padding:16px 32px;
+    border-radius:15px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.layout-button:hover{
+    background:#3f8b5a;
+}
+
+/* =========================
+   PLOT TYPES
+========================= */
+
+.plot-section h1{
+    margin-bottom:35px;
+    font-size:40px;
+}
+
+.plot-card{
+    background:white;
+    padding:35px;
+    margin-bottom:25px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+
+.plot-card:hover{
+    transform:translateY(-4px);
+}
+
+.plot-card h2{
+    margin-bottom:10px;
+    color:#2f6b45;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.content-section{
+    line-height:1.9;
+}
+
+.content-section h1{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.content-section p{
+    font-size:16px;
+    color:#456252;
+}
+
+/* =========================
+   TEAM
+========================= */
+
+.team-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:35px;
+}
+
+.team-card{
+    background:white;
+    border-radius:24px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+
+.team-card:hover{
+    transform:translateY(-5px);
+}
+
+.team-card h2{
+    color:#2f6b45;
+    margin-bottom:10px;
+}
+
+/* =========================
+   RESERVE PAGE
+========================= */
+
+.reserve-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.reserve-container{
+    width:450px;
+    background:white;
+    padding:45px;
+    border-radius:28px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
+
+.reserve-container h1{
+    margin-bottom:25px;
+    text-align:center;
+    font-size:34px;
+}
+
+/* =========================
+   CEMETERY PAGE
+========================= */
+
+.cemetery-page{
+    text-align:center;
+}
+
+.cemetery-page h1{
+    font-size:44px;
+    margin-bottom:30px;
+}
+
+.cemetery-wrapper{
+    position:relative;
+    width:1000px;
+    margin:0 auto;
+    background:white;
+    padding:35px;
+    border-radius:35px;
+    box-shadow:0 15px 45px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   MAP IMAGE
+========================= */
+
+.cemetery-image{
+    width:100%;
+    border-radius:25px;
+}
+
+/* =========================
+   CLICKABLE ZONES
+========================= */
+
+.click-zone{
+    position:absolute;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.click-zone:hover{
+    background:rgba(47,107,69,0.08);
+    border-radius:15px;
+}
+
+/* =========================
+   HIDDEN PLOTS
+========================= */
+
+.hidden-plots{
+    display:none;
+}
+
+/* =========================
+   MAUSOLEUM BOXES
+========================= */
+
+.plot-box{
+    position:absolute;
+    width:200px;
+    height:345px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:30px;
+}
+
+/* =========================
+   GROUND + ROOFED
+========================= */
+
+.plot-box2{
+    position:absolute;
+    width:130px;
+    height:100px;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:22px;
+}
+
+/* =========================
+   HOVER
+========================= */
+
+.plot-box:hover,
+.plot-box2:hover{
+    transform:scale(1.04);
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
+
+.unoccupied{
+    border:5px solid white;
+    background:rgba(255,255,255,0.2);
+}
+
+.reserved{
+    background:#4d8dff;
+    color:white;
+    box-shadow:0 0 18px rgba(77,141,255,0.35);
+}
+
+.occupied{
+    background:#d84d4d;
+    color:white;
+    box-shadow:0 0 18px rgba(216,77,77,0.35);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#dfeee3;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2f6b45;
+    border-radius:20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .cemetery-wrapper{
+        width:100%;
+        overflow:auto;
+    }
+
+    nav{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .map-section,
+    .content-section,
+    .plot-section,
+    .reserve-section,
+    .cemetery-page{
+        padding:40px 20px;
+    }
+
+    .auth-container,
+    .reserve-container{
+        width:100%;
+    }
+}
