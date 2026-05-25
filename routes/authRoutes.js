@@ -1,14 +1,15 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-
 const router = express.Router();
 
 const User = require("../models/User");
 
+/* =========================
+   REGISTER
+========================= */
+
 router.post("/register", async (req, res) => {
 
-    try {
+    try{
 
         const {
             email,
@@ -20,25 +21,46 @@ router.post("/register", async (req, res) => {
             password
         } = req.body;
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        /*
+            CHECK IF EMAIL EXISTS
+        */
+
+        const existingUser =
+            await User.findOne({ email });
+
+        if(existingUser){
+
+            return res.status(400).json({
+                message:"Email already exists"
+            });
+
+        }
+
+        /*
+            CREATE USER
+        */
 
         const user = new User({
+
             email,
             surname,
             givenName,
             middleInitial,
             contactNumber,
             address,
-            password: hashedPassword
+            password
+
         });
 
         await user.save();
 
         res.json({
-            message: "Registered Successfully"
+            message:"Registered Successfully"
         });
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         res.status(500).json(error);
 
@@ -46,49 +68,73 @@ router.post("/register", async (req, res) => {
 
 });
 
+/* =========================
+   LOGIN
+========================= */
+
 router.post("/login", async (req, res) => {
 
-    try {
+    try{
 
-        const { email, password } = req.body;
+        const {
+            email,
+            password
+        } = req.body;
 
-        const user = await User.findOne({ email });
+        /*
+            FIND USER
+        */
 
-        if (!user) {
+        const user =
+            await User.findOne({ email });
+
+        /*
+            EMAIL NOT FOUND
+        */
+
+        if(!user){
 
             return res.status(400).json({
-                message: "User not found"
+                message:"Email not found"
             });
 
         }
 
-        const validPassword = await bcrypt.compare(
-            password,
-            user.password
-        );
+        /*
+            CHECK PASSWORD
+        */
 
-        if (!validPassword) {
+        if(user.password !== password){
 
             return res.status(400).json({
-                message: "Invalid password"
+                message:"Incorrect Password"
             });
 
         }
 
-        const token = jwt.sign(
-            {
-                id: user._id,
-                role: user.role
-            },
-            process.env.JWT_SECRET
-        );
+        /*
+            LOGIN SUCCESS
+        */
 
         res.json({
-            token,
-            user
+
+            message:"Login Successful",
+
+            token:"loggedin",
+
+            user:{
+
+                email:user.email,
+                surname:user.surname,
+                givenName:user.givenName
+
+            }
+
         });
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         res.status(500).json(error);
 

@@ -52,26 +52,54 @@ async function login() {
             document.getElementById("password").value
     };
 
-    const response = await fetch("/api/auth/login", {
+    const response = await fetch(
+        "/api/auth/login",
+        {
 
-        method: "POST",
+            method:"POST",
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            headers:{
+                "Content-Type":"application/json"
+            },
 
-        body: JSON.stringify(data)
+            body:JSON.stringify(data)
 
-    });
+        }
+    );
 
-    const result = await response.json();
+    const result =
+        await response.json();
+
+    /*
+        LOGIN FAILED
+    */
+
+    if(!response.ok){
+
+        alert(result.message);
+
+        return;
+
+    }
+
+    /*
+        LOGIN SUCCESS
+    */
 
     localStorage.setItem(
         "token",
         result.token
     );
 
-    window.location.href = "index.html";
+    localStorage.setItem(
+        "user",
+        JSON.stringify(result.user)
+    );
+
+    alert("Login Successful");
+
+    window.location.href =
+        "index.html";
 }
 
 async function reservePlot() {
@@ -175,7 +203,7 @@ async function loadPlots() {
 
         /*
             MAUSOLEUM
-            USES .plot-box
+            .plot-box
         */
 
         if (
@@ -188,7 +216,7 @@ async function loadPlots() {
 
         /*
             IN-GROUND + ROOFED
-            USES .plot-box2
+            .plot-box2
         */
 
         else {
